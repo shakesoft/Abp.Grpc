@@ -6,7 +6,7 @@ namespace Abp.Grpc.Samples.Server.GrpcService
     /// <summary>
     /// 测试用的 Grpc 服务接口定义
     /// </summary>
-    public interface ITestService : IService<ITestService>
+    public interface ITestService : IService<ITestService>, ISingletonDependency
     {
         /// <summary>
         /// 计算两数之和
