@@ -1,5 +1,6 @@
 using System;
 using Abp.Dependency;
+using Abp.Domain.Uow;
 using Abp.Grpc.Common.Runtime.Session;
 using Abp.Runtime.Session;
 using MagicOnion;
@@ -10,10 +11,12 @@ namespace Abp.Grpc.Samples.Server.GrpcService
     public class TestService : ServiceBase<ITestService>,ITestService
     {
         private readonly IAbpSession _tmpAbpSession;
+        private readonly IUnitOfWorkManager _unitOfWorkManager;
 
-        public TestService(IAbpSession tmpAbpSession)
+        public TestService(IAbpSession tmpAbpSession, IUnitOfWorkManager unitOfWorkManager)
         {
             _tmpAbpSession = tmpAbpSession;
+            _unitOfWorkManager = unitOfWorkManager;
         }
 
         public UnaryResult<int> Sum(int x, int y)

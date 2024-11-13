@@ -12,7 +12,7 @@ namespace Abp.Grpc.Samples.Server
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // 注入 MVC 组件
-            services.AddMvc();
+            services.AddMvc(options => { options.EnableEndpointRouting = false; });
             // 注入 Abp 框架，并替换 DI 框架为 Castle
             return services.AddAbp<AbpGrpcSamplesServerModule>();
         }

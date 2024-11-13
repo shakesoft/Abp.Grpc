@@ -1,9 +1,10 @@
+using Abp.Dependency;
 using Abp.Grpc.Common.Runtime.Session;
 using MagicOnion;
 
 namespace Abp.Grpc.Samples.Client.GrpcService
 {
-    public interface ITestService : IService<ITestService>
+    public interface ITestService : IService<ITestService>,ISingletonDependency
     {
         /// <summary>
         /// 计算两数之和

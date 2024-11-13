@@ -1,3 +1,4 @@
+using Abp.Dependency;
 using Abp.Grpc.Common.Runtime.Session;
 using MagicOnion;
 

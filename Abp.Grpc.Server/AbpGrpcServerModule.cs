@@ -12,6 +12,7 @@ using Abp.Threading;
 using Castle.MicroKernel.Registration;
 using Consul;
 using Grpc.Core;
+using MagicOnion.Hosting;
 using MagicOnion.Server;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
