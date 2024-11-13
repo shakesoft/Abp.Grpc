@@ -60,11 +60,12 @@ namespace Abp.Grpc.Server
         private void InitializeGrpcServer(IGrpcServerConfiguration config)
         {
             var options = new MagicOnionOptions();
-            options.IsReturnExceptionStackTraceInErrorDetail = true;
+            options.IsReturnExceptionStackTraceInErrorDetail = false;
             
             var serviceLocator = new CasteWindsorServiceLocatorBridge(IocManager);
 
             options.ServiceLocator = serviceLocator;
+            options.MagicOnionServiceActivator = new MicrosoftExtensionsMagicOnionServiceActivator();
 
             // 构建 gRpc 服务。
             MagicOnionServiceDefinition serviceDefine = null;
