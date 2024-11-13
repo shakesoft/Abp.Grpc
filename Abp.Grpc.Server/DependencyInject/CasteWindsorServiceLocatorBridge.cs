@@ -52,7 +52,7 @@ namespace Abp.Grpc.Server.DependencyInject
             _scopedIocResolver.Dispose();
         }
 
-        public IServiceLocator ServiceLocator { get; }
+        public IServiceLocator ServiceLocator => this;
         public T GetService<T>()
         {
             return _scopedIocResolver.Resolve<T>();
